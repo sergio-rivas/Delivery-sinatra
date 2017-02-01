@@ -1,0 +1,12 @@
+<%recipes = @cookbook.all%>
+<p>Which Recipe Would You Like To Mark Complete?</p>
+<form method="post" action="/mark-complete/">
+<%recipes.each_with_index do |recipe, i|%>
+<div class="radio">
+  <label>
+    <input type="radio" name="recipe_choice" value="<%=i%>"> <%=recipe.name%> (<%=recipe.cooking_time%> min)
+  </label>
+</div>
+    <%end%>
+      <input type="submit" value="Completed"/>
+</form>

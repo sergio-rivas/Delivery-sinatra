@@ -1,0 +1,7 @@
+<% recipes = @cookbook.all %>
+<p>
+<% recipes.each_with_index do |recipe, index| %>
+      <% x = recipe.done ? "X" : " " %>
+      <h3><div class="row">[<%=x%>] <%=index + 1%> - <%=recipe.name%> (<%=recipe.cooking_time%> min) </div></h3><div class="row"><%=recipe.description%></div>
+<% end %>
+</p>

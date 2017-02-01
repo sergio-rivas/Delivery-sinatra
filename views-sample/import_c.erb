@@ -1,0 +1,6 @@
+<%recipes = @browser.fetch_recipes(@html_docs)%>
+<%cooking_times = @browser.calculate_cookingtimes(@html_docs)%>
+<%descriptions = @browser.fetch_descriptions(@html_docs)%>
+<%new_recipe = Recipe.new(recipes[@i].text, cooking_times[@i], descriptions[@i].text)%>
+<%@cookbook.add_recipe(new_recipe)%>
+<p>Recipe Added!</p>

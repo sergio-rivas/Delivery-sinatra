@@ -1,0 +1,17 @@
+<%recipes = @browser.fetch_recipes(@html_docs)%>
+<%cooking_times = @browser.calculate_cookingtimes(@html_docs)%>
+
+
+<p>Which <%=@ingredient.capitalize%> Recipe Would You Like To Import?</p>
+
+<form method="post" action="/import3/">
+<input type="hidden" name="ingredient" value="<%=@ingredient%>">
+<%recipes.each_with_index do |recipe, i|%>
+<div class="radio">
+  <label>
+    <input type="radio" name="recipe_choice" value="<%=i%>"> <%=recipe.text%> (<%=cooking_times[i]%> min)
+  </label>
+</div>
+    <%end%>
+      <input type="submit" value="Import"/>
+</form>

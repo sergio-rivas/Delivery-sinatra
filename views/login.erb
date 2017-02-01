@@ -1,0 +1,15 @@
+        <section>
+            <h1>Log in</h1>
+
+            <% if flash[:error] %>
+              <p class="error"><%= flash[:error] %></p>
+            <% end %>
+
+            <form method="post" action="/auth/login">
+              <label>Email</label>
+              <input type="text" name="email" placeholder="you@you.com" />
+              <label>Password</label>
+              <input type="password" name="password" placeholder="123456" />
+              <input type="submit" value="Log in" />
+            </form>
+        </section>
